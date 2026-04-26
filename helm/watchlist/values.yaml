@@ -1,0 +1,25 @@
+namespace: watchlist
+
+image:
+  backend: massontg/watchlist-backend:latest
+  frontend: massontg/watchlist-frontend:latest
+
+replicas:
+  fastapi: 2
+  celery: 1
+
+postgres:
+  db: watchlist
+  user: postgres
+  password: postgres123
+
+redis:
+  host: redis
+
+service:
+  frontendNodePort: 30080
+
+resources:
+  fastapi:
+    memory: "256Mi"
+    cpu: "250m"
