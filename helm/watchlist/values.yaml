@@ -13,6 +13,9 @@ postgres:
   user: postgres
   password: postgres123
 
+secret:
+  secretKey: "devops-secret-key-for-jwt-2024"
+
 redis:
   host: redis
 
