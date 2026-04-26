@@ -18,6 +18,23 @@
   --shadow: 0 8px 32px rgba(0,0,0,0.5);
 }
 
+[data-theme="light"] {
+  --bg: #f5f5f7;
+  --bg2: #ffffff;
+  --bg3: #ebebed;
+  --bg4: #e0e0e3;
+  --border: #d0d0d5;
+  --text: #1a1a1f;
+  --text2: #505060;
+  --text3: #9090a0;
+  --accent: #7c6aff;
+  --accent2: #9d8fff;
+  --green: #2ab87a;
+  --red: #e03030;
+  --yellow: #d4890a;
+  --shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
 body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; }
 
 /* PAGES */
@@ -175,26 +192,6 @@ body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-ser
 .modal-close { background: var(--bg4); border: none; color: var(--text2); width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-size: 16px; transition: all 0.2s; }
 .modal-close:hover { background: var(--red); color: #fff; }
 .modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 8px; }
-/* OMDB DROPDOWN */
-.omdb-dropdown {
-  position: absolute; top: 100%; left: 0; right: 0; z-index: 999;
-  background: var(--bg3); border: 1px solid var(--border);
-  border-radius: var(--radius); margin-top: 4px;
-  box-shadow: var(--shadow); overflow: hidden;
-}
-.omdb-item {
-  display: flex; align-items: center; gap: 12px;
-  padding: 10px 14px; cursor: pointer; transition: background 0.15s;
-}
-.omdb-item:hover { background: var(--bg4); }
-.omdb-poster { width: 36px; height: 54px; object-fit: cover; border-radius: 4px; background: var(--bg4); flex-shrink: 0; }
-.omdb-title { font-size: 14px; font-weight: 500; color: var(--text); }
-.omdb-meta { font-size: 12px; color: var(--text2); margin-top: 2px; }
-.omdb-loading { padding: 12px 14px; color: var(--text2); font-size: 14px; }
-
-/* Відносне позиціювання для дропдауну */
-#modal .form-group:first-child { position: relative; }
-/* ===== ДОДАТИ В КІНЕЦЬ style.css ===== */
 
 /* OMDB DROPDOWN */
 .omdb-dropdown {
@@ -241,6 +238,7 @@ body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-ser
   margin-top: 10px; font-size: 12px; color: var(--text3); line-height: 1.5;
   display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
 }
+
 /* КАРТКА З ПОСТЕРОМ */
 .card-inner { display: flex; gap: 14px; }
 .card-poster { width: 80px; flex-shrink: 0; }
@@ -250,3 +248,16 @@ body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-ser
 
 /* ПРЕВ'Ю ПОСТЕРА В ФОРМІ */
 .poster-preview { width: 80px; height: 120px; object-fit: cover; border-radius: 8px; margin-top: 8px; }
+
+/* THEME TOGGLE */
+.btn-theme {
+  padding: 7px 12px; background: transparent; border: 1px solid var(--border);
+  border-radius: 8px; color: var(--text2); font-size: 16px; cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-theme:hover { border-color: var(--accent); color: var(--accent); }
+
+/* HEADER light theme fix */
+[data-theme="light"] .header {
+  background: rgba(245,245,247,0.85);
+}

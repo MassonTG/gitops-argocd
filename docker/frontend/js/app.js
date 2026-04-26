@@ -11,9 +11,32 @@ function showMainPage() {
   loadMedia();
 }
 
+function initTheme() {
+  const saved = localStorage.getItem('theme') || 'dark';
+  applyTheme(saved);
+}
+
+function applyTheme(theme) {
+  const btn = document.getElementById('btn-theme');
+  if (theme === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    if (btn) btn.textContent = '☀️';
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+    if (btn) btn.textContent = '🌙';
+  }
+  localStorage.setItem('theme', theme);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initAuth();
   initCatalog();
+  initTheme();
+
+  document.getElementById('btn-theme').addEventListener('click', () => {
+    const current = localStorage.getItem('theme') || 'dark';
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
 
   document.getElementById('btn-logout').addEventListener('click', () => {
     localStorage.removeItem('token');
