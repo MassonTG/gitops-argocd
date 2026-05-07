@@ -6,11 +6,6 @@ Watchlist app deployed with full GitOps pipeline using ArgoCD and Helm.
 Terraform · k3s · Kubernetes · Helm · ArgoCD · Docker · GitHub Actions · AWS EC2
 
 ## Architecture
-GitHub repo (gitops-argocd)
-├── helm/watchlist/     ← Helm chart
-├── argocd/             ← ArgoCD Application manifest
-└── .github/workflows/  ← CI/CD pipeline
-GitHub Actions (on push to docker/**)
 1. Build Docker images
 2. Push to Docker Hub with timestamp tag
 3. Update image tag in values.yaml
